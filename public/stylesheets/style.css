@@ -1,8 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: #303952;
+  color: #fff;
 }
 
 a {
-  color: #00B7FF;
+  background-color: rgba(225, 95, 65, 1);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container {
+  margin: 10px auto;
+  width: 640px;
+  background-color: rgba(89, 98, 117, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  padding: 10px;
 }
