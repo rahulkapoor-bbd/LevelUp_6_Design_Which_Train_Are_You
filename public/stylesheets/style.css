@@ -19,6 +19,19 @@ a {
   cursor: pointer;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > section {
+  width: 40%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .container {
   margin: 10px auto;
   width: 640px;

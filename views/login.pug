@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.heading.container
+    h1=title
+    p Please login in order to start the quiz
+    form(action="/login", method="POST")
+      p
+        section
+          | username: 
+          input(type="text", name="username", value="")
+        section
+          | password:
+          input(type="password", name="password", value="")
+      input(type="submit", value="Submit")
+
