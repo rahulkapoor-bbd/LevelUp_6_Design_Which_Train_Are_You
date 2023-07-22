@@ -22,6 +22,7 @@ a {
 form {
   display: flex;
   flex-direction: column;
+  font-size: large;
 }
 
 form > section {
@@ -30,6 +31,19 @@ form > section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+form > input {
+  background-color: rgba(225, 95, 65, 1);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .container {
