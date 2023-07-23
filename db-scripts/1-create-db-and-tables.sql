@@ -28,10 +28,45 @@ VALUES
 CREATE TABLE Question (
 [QuestionId] int IDENTITY(1,1) NOT NULL,
 [Content] varchar(512) NOT NULL,
-[TrainId] int,
+[TrainId] int NOT NULL,
+[IsPositive] bit NOT NULL,
 CONSTRAINT [PK_Question_QuestionId] PRIMARY KEY ([QuestionId]),
 CONSTRAINT [FK_Question_Train] FOREIGN KEY (TrainId) REFERENCES [Train]([TrainId]) 
 );
+
+INSERT INTO Question (Content, TrainId, IsPositive)
+VALUES
+('I always have kind things to say to other people', 3, 1),
+('I am usually prepared for every situation', 1, 1),
+('I feel comfortable around new people', 5, 1),
+('I often feel down or sad', 2, 1),
+('I am good at understanding how I am feeling', 4, 1),
+('I consider myself the life of the party', 5, 1),
+('I am good at reading other peoples body language', 3, 1),
+('There are many things that I dont like about myself', 5, 1),
+('My moods change easily', 2, 1),
+('I have good control over my emotions', 2, 0),
+('I treat everyone else with kindness and empathy', 3, 1),
+('I would rather get tasks done sooner than later', 1, 1),
+('I am skilled at handling social situations', 5, 1),
+('I often feel troubled by negative thoughts', 2, 1),
+('I accept people for who they are', 4, 1),
+('I experience emotions very vividly', 4, 1),
+('I usually take care of other people before I take care of myself', 3, 1),
+('I often worry about what could go wrong', 2, 1),
+('I consider myself charming', 5, 1),
+('I start arguments just for the fun of it sometimes', 3, 0),
+('I often worry that I am not good enough', 2, 1),
+('I am flourishing', 4, 1),
+('I find it difficult to get started with work', 1, 0),
+('I prefer to remain in the background instead of standing out', 5, 0),
+('I dont often feel sad', 2, 0),
+('I am strongly affected by the suffering of other people', 3, 1),
+('I will readily stop what I am doing to help other people', 3, 1),
+('I often change my plans', 1, 0),
+('I feel comfortable with who I am', 4, 1),
+('I often ponder why I am feeling the way I am', 4, 1),
+('I avoid philosophical discussions', 4, 0);
 
 CREATE TABLE AppUser (
 [UserId] int IDENTITY(1,1) NOT NULL,
@@ -43,4 +78,3 @@ CONSTRAINT [PK_AppUser_UserId] PRIMARY KEY ([UserId]),
 CONSTRAINT [UQ_AppUser_Username] UNIQUE ([Username]),
 CONSTRAINT [FK_AppUser_Train] FOREIGN KEY (TrainId) REFERENCES [Train]([TrainId]) 
 );
-
