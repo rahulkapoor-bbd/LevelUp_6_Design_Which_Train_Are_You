@@ -9,12 +9,12 @@
 
   [Wikipedia Link](https://en.wikipedia.org/wiki/Union_Pacific_9000_Class)
 
-- ### ABB ALP-44
+- ### Class 5M2
   Train ID: **2**
 
   Associated personality trait: **Neuroticism**
 
-  [Wikipedia Link](https://en.wikipedia.org/wiki/ABB_ALP-44)
+  [Wikipedia Link](https://en.wikipedia.org/wiki/South_African_Class_5M2)
 
 - ### SBB RABe 514
   Train ID: **3**
