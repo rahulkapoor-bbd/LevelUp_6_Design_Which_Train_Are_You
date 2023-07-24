@@ -16,7 +16,14 @@ namespace WhichTrainAreYouAPI.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure any additional model constraints or relationships here
+            // Define the primary key for the Train entity
+            modelBuilder.Entity<Train>().HasKey(t => t.TrainId);
+
+            // Define the primary key for the Question entity
+            modelBuilder.Entity<Question>().HasKey(q => q.QuestionId);
+
+            // Define the primary key for the AppUser entity
+            modelBuilder.Entity<AppUser>().HasKey(u => u.UserId);
         }
     }
 }

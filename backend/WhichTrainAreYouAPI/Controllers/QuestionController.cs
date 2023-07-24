@@ -10,7 +10,7 @@ namespace WhichTrainAreYouAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionController : ControllerBase
+    public class QuestionController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
 
