@@ -16,6 +16,10 @@ namespace WhichTrainAreYouAPI.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Train>().ToTable("Train", schema: "dbo");
+            modelBuilder.Entity<Question>().ToTable("Question", schema: "dbo");
+            modelBuilder.Entity<AppUser>().ToTable("AppUser", schema: "dbo");
+
             // Define the primary key for the Train entity
             modelBuilder.Entity<Train>().HasKey(t => t.TrainId);
 
