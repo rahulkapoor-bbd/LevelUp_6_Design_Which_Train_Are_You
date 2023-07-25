@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  div.heading.container
+    h1=title
+    p Please select the answer that best describes how you feel about each statement.
+    form(action="/quiz", method="POST")
+      each question in questions
+        .question
+          section
+            h3= question.question
+            .radio-group
+              label(for=`question_${question.id}_1`)
+                input(type='radio' name=`question_${question.id}` value='1')
+                | Disagree
+              label(for=`question_${question.id}_2`)
+                input(type='radio' name=`question_${question.id}` value='2')
+                span
+              label(for=`question_${question.id}_3`)
+                input(type='radio' name=`question_${question.id}` value='3')
+                span
+              label(for=`question_${question.id}_4`)
+                input(type='radio' name=`question_${question.id}` value='4')
+                span
+              label(for=`question_${question.id}_5`)
+                input(type='radio' name=`question_${question.id}` value='5')
+                | Agree
+      input(type="submit", value="Submit Quiz", class="submit-button")

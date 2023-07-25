@@ -3,7 +3,7 @@ extends layout
 block content
   div.heading.container
     h1=title
-    p Please login in order to start the quiz
+    p Please log in to take the quiz
     form(action="/login", method="POST")
       p
         section
@@ -12,5 +12,5 @@ block content
         section
           | Password:
           input(type="password", name="password", value="")
-      input(type="submit", value="Submit")
+      input(type="submit", value="Log In")
 

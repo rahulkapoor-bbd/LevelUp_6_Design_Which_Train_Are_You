@@ -50,7 +50,50 @@ form > input {
   margin: 10px auto;
   width: 640px;
   background-color: rgba(89, 98, 117, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 5px;
   padding: 10px;
+}
+
+.question {
+  background-color: #e15f41;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.radio-group label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.radio-group input[type="radio"] {
+  margin-bottom: 5px;
+}
+
+.submit-button {
+  background-color: #7f8fa6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
 }
