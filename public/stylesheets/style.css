@@ -19,6 +19,11 @@ a {
   cursor: pointer;
 }
 
+img {
+  width: 30rem;
+  border-radius: 5px;
+}
+
 form {
   display: flex;
   flex-direction: column;

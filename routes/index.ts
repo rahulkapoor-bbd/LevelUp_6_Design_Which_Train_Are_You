@@ -31,7 +31,10 @@ router.get("/quiz", async (req, res, next) => {
       questions: questions,
     });
   } catch (error) {
-    console.error("Error fetching questions:", (error as AxiosError<Error>).message);
+    console.error(
+      "Error fetching questions:",
+      (error as AxiosError<Error>).message
+    );
     res.render("error");
   }
 });
@@ -44,5 +47,18 @@ interface Question {
 interface Error {
   message: string;
 }
+
+router.get("/profile", async (req, res, next) => {
+  res.render("profile", {
+    title: "Profile Page",
+    userDetails: {
+      username: "CoolBoi",
+      trainId: 1,
+      trainName: "Union Pacific 9000 Class",
+      description:
+        "The Union Pacific Railroad 9000 Class was a class of 88 steam locomotives, built by ALCO for the Union Pacific between 1926 and 1930. The Union Pacific 9000 class was the only class of steam locomotives with a 4-12-2 wheel arrangement ever to be built.",
+    },
+  });
+});
 
 export default router;
