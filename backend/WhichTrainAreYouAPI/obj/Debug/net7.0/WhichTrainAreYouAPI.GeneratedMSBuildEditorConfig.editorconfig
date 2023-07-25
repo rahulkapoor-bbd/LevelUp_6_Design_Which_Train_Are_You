@@ -1,0 +1,17 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WhichTrainAreYouAPI
+build_property.RootNamespace = WhichTrainAreYouAPI
+build_property.ProjectDir = C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI
+build_property._RazorSourceGeneratorDebug = 
