@@ -31,14 +31,19 @@ router.get("/quiz", async (req, res, next) => {
       questions: questions,
     });
   } catch (error) {
-    console.error("Error fetching questions:", (error as AxiosError<Error>).message);
+    console.error(
+      "Error fetching questions:",
+      (error as AxiosError<Error>).message
+    );
     res.render("error");
   }
 });
 
 interface Question {
-  question: string;
   id: number;
+  content: string;
+  trainId: number;
+  isPositive: boolean;
 }
 
 interface Error {
