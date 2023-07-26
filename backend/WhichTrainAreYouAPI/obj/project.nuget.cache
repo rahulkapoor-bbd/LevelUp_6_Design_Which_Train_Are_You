@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JBInq9bNEgXSNB2aJfusG9sW/B3+W9xcVO5W/5Gabxop1zBFLUmu8qqHrbiUJu23/g58VxVK+dSYIskJ+7Fwcw==",
+  "dgSpecHash": "n/WmFC7+kClTgEbTcWsovPIqcCMQ6455BICZBq+hntgYt6G2sP7b3S1Pdfa69b4iTcAJiwepiyQ3sP1OPv51wA==",
   "success": true,
   "projectFilePath": "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\bbdnet2858\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.9\\microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
+    "C:\\Users\\bbdnet2858\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.9\\microsoft.aspnetcore.authentication.jwtbearer.6.0.9.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",
@@ -67,6 +67,7 @@
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.runtime.caching\\5.0.0\\system.runtime.caching.5.0.0.nupkg.sha512",
+    "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.security.cryptography.cng\\5.0.0\\system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "C:\\Users\\bbdnet2858\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
