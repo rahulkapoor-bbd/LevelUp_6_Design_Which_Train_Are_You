@@ -9,6 +9,7 @@ C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Des
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\BCrypt.Net-Core.dll
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Humanizer.dll
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
