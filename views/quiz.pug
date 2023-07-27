@@ -4,7 +4,7 @@ block content
   div.heading.container
     h1=title
     p Please select the answer that best describes how you feel about each statement.
-    form(action="", method="GET")
+    form(action="/quiz", method="GET")
       each question in questions
         .question
           section
