@@ -33,6 +33,11 @@ hr {
   width: 80%;
 }
 
+img {
+  width: 30rem;
+  border-radius: 5px;
+}
+
 form {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,13 @@
+extends layout 
+
+block content
+  div.heading.container
+    h1=title
+    if userDetails
+      h2 Welcome back, !{userDetails.username}!
+      img(src=`/images/${userDetails.trainId}.jpg`)
+      h3 Your train is: The !{userDetails.trainName}
+      p !{userDetails.description}
+      a(href="/quiz") Retake Quiz
+    else
+      h2 Error loading user

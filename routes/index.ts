@@ -87,6 +87,7 @@ router.get("/quiz", async (req, res, next) => {
     const questions = response.data;
     res.render("quiz", {
       title: "Which train are you?",
+      username: "Coolboi",
       questions: questions,
     });
   } catch (error) {
@@ -97,6 +98,37 @@ router.get("/quiz", async (req, res, next) => {
     res.render("error");
   }
 });
+
+router.get("/profile", async (req, res, next) => {
+  const trainId = localStorage.getItem("trainId");
+  const trainUrl = URL + "Train/" + trainId;
+
+  try {
+    const response = await axiosInstance.get<Train>(trainUrl);
+    const train = response.data;
+     res.render("profile", {
+      title: "Your results",
+      userDetails: {
+        username: localStorage.getItem("username"),
+        trainId: train.trainId,
+        trainName: train.trainName,
+        description: train.description,
+      },
+    });
+  } catch (error) {
+    console.error(
+      "Error fetching questions:",
+      (error as AxiosError<Error>).message
+    );
+    res.render("error");
+  }
+});
+
+interface Train {
+  trainId: number;
+  trainName: string;
+  description: string;
+}
 
 interface Question {
   id: number;
