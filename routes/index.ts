@@ -35,7 +35,20 @@ router.post("/login", async (req, res, next) => {
     const response = await axiosInstance.post(loginUrl, loginData, {
       headers: { "Content-Type": "application/json" },
     });
-    res.redirect("/quiz");
+
+    const userData: User = response.data;
+
+    localStorage.setItem("username", userData.username);
+
+    if (userData.trainId) {
+      localStorage.setItem("trainId", userData.trainId + "");
+    }
+
+    if (userData.trainId) {
+      res.redirect("/profile");
+    } else {
+      res.redirect("/quiz");
+    }
   } catch (error: any) {
     console.error(error);
     res.render("login", { title: "Login", error: error.response.data });
@@ -91,6 +104,14 @@ interface Question {
 
 interface Error {
   message: string;
+}
+
+interface User {
+  userId: number;
+  username: string;
+  passwordHash: string;
+  salt: string;
+  trainId?: number;
 }
 
 export default router;
