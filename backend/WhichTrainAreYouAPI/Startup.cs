@@ -5,6 +5,7 @@ using WhichTrainAreYouAPI.Middleware;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using WhichTrainAreYouAPI.Utils;
 
 namespace WhichTrainAreYouAPI
 {
@@ -26,6 +27,8 @@ namespace WhichTrainAreYouAPI
 
             // Add controllers
             services.AddControllers();
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<JWTHelper>();
 
             // Add authentication (if needed)
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
