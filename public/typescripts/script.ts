@@ -6,7 +6,8 @@ function makeChoice(weight: number, trainId: number, isPositive: boolean) {
   weights[trainId - 1] += weight * (isPositive ? 1 : -1);
 }
 
-async function submitResult(username: string) {
+async function submitResult() {
+  console.log("submitting");
   const percentages = weights.map((weight, index) =>
     totals[index] === 0 ? 0 : (weight / totals[index]) * 2
   );
@@ -26,3 +27,5 @@ async function submitResult(username: string) {
     },
   });
 }
+
+export { submitResult}
