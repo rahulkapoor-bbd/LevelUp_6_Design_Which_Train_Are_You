@@ -11,27 +11,31 @@ namespace WhichTrainAreYouAPI.Controllers
     public class AppUserController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly JWTHelper _jwtHelper;
 
-        public AppUserController(ApplicationDbContext dbContext)
+        public AppUserController(ApplicationDbContext dbContext, JWTHelper jwtHelper)
         {
             _dbContext = dbContext;
+            _jwtHelper = jwtHelper;
         }
+
 
         [HttpPost("register")]
         public IActionResult Register(UserRegistrationDTO registrationDto)
         {
-            // Validate inputs and check if the username already exists
-            // Generate salt and hash the password
+            if (_dbContext.AppUsers.Any(u => u.Username == registrationDto.Username))
+            {
+                return BadRequest("Username already exists.");
+            }
+
             string salt;
             string hashedPassword = PasswordHelper.HashPassword(registrationDto.Password, out salt);
 
-            // Save the user to the database
             var newUser = new AppUser
             {
                 Username = registrationDto.Username,
                 PasswordHash = hashedPassword,
-                Salt = salt,
-                Score = 0
+                Salt = salt
             };
 
             _dbContext.AppUsers.Add(newUser);
@@ -43,23 +47,23 @@ namespace WhichTrainAreYouAPI.Controllers
         [HttpPost("login")]
         public IActionResult Login(UserLoginDTO loginDto)
         {
-            // Find the user in the database based on the provided username
             var user = _dbContext.AppUsers.FirstOrDefault(u => u.Username == loginDto.Username);
+
             if (user == null)
             {
                 return NotFound("User not found");
             }
 
-            // Verify the password
             if (!PasswordHelper.VerifyPassword(loginDto.Password, user.PasswordHash, user.Salt))
             {
                 return BadRequest("Invalid credentials");
             }
 
-            // You can generate a JWT token and return it to the client for further authentication
+            var tokenString = _jwtHelper.GenerateJWTToken(user);
 
-            // For simplicity, let's just return an "Authenticated" message here
-            return Ok("Authenticated!");
+            Response.Headers.Add("Authorization", "Bearer " + tokenString);
+
+            return NoContent();
         }
 
         [HttpPut("updateTrainId")]
