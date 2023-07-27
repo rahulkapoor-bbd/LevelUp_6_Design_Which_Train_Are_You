@@ -40,8 +40,10 @@ router.get("/quiz", async (req, res, next) => {
 });
 
 interface Question {
-  question: string;
   id: number;
+  content: string;
+  trainId: number;
+  isPositive: boolean;
 }
 
 interface Error {
