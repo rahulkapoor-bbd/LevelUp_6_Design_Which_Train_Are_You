@@ -22,12 +22,12 @@ namespace WhichTrainAreYouAPI
         public void ConfigureServices(IServiceCollection services)
         {
             var appSettings = Configuration.GetSection("AppSettings");
-            var jwtSecretKey = appSettings["JwtSecretKey"];
+            var jwtSecretKey = Environment.GetEnvironmentVariable("WhichTrainAreYouJWTKey");
             var issuer = appSettings["Issuer"];
             var audience = appSettings["Audience"];
 
             // Add DbContext
-            string connectionString = Configuration.GetConnectionString("DbConnection")!;
+            var connectionString = Environment.GetEnvironmentVariable("WhichTrainAreYouDBConnectionString");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
@@ -51,7 +51,7 @@ namespace WhichTrainAreYouAPI
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = issuer,
                         ValidAudience = audience,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey == null ? " " : jwtSecretKey))
                     };
                 });
 
