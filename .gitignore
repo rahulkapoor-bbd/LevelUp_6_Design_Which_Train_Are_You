@@ -132,3 +132,4 @@ dist
 # C#
 backend/WhichTrainAreYouAPI/bin
 backend/WhichTrainAreYouAPI/obj
+backend/WhichTrainAreYouAPI/.vs
