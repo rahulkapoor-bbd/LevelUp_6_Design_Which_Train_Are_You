@@ -130,5 +130,5 @@ dist
 .pnp.*
 
 # c# 
-backend/WhichTrainAreYouAPI/bin/
-backend/WhichTrainAreYouAPI/obj/
+backend/WhichTrainAreYouAPI/bin
+backend/WhichTrainAreYouAPI/obj
