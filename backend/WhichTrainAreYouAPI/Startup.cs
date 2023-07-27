@@ -5,6 +5,8 @@ using WhichTrainAreYouAPI.Middleware;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using WhichTrainAreYouAPI.Utils;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace WhichTrainAreYouAPI
 {
@@ -19,6 +21,11 @@ namespace WhichTrainAreYouAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var appSettings = Configuration.GetSection("AppSettings");
+            var jwtSecretKey = appSettings["JwtSecretKey"];
+            var issuer = appSettings["Issuer"];
+            var audience = appSettings["Audience"];
+
             // Add DbContext
             string connectionString = Configuration.GetConnectionString("DbConnection")!;
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -26,26 +33,27 @@ namespace WhichTrainAreYouAPI
 
             // Add controllers
             services.AddControllers();
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<JWTHelper>();
 
             services.AddHealthChecks();
 
 
-
-            // Add authentication (if needed)
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //    {
-            //        options.TokenValidationParameters = new TokenValidationParameters
-            //        {
-            //            ValidateIssuer = true,
-            //            ValidateAudience = true,
-            //            ValidateLifetime = true,
-            //            ValidateIssuerSigningKey = true,
-            //            ValidIssuer = "your_issuer", // Replace with your issuer URL or identifier
-            //            ValidAudience = "your_audience", // Replace with your audience URL or identifier
-            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key")) // Replace with your secret key
-            //        };
-            //    });
+            // Add authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = issuer,
+                        ValidAudience = audience,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
+                    };
+                });
 
             services.AddSwaggerGen(c =>
             {
