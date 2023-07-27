@@ -107,7 +107,7 @@ router.get("/profile", async (req, res, next) => {
     const response = await axiosInstance.get<Train>(trainUrl);
     const train = response.data;
      res.render("profile", {
-      title: "Profile Page",
+      title: "Your results",
       userDetails: {
         username: localStorage.getItem("username"),
         trainId: train.trainId,
