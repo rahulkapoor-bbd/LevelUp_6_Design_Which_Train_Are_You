@@ -99,6 +99,25 @@ router.get("/quiz", async (req, res, next) => {
   }
 });
 
+router.post("/submit/:trainId", async (req, res, next) => {
+  const trainId = req.params.trainId;
+
+  localStorage.setItem("trainId", trainId);
+
+  const data = JSON.stringify({
+    username: localStorage.getItem("username"),
+    newTrainId: trainId,
+  });
+  const response = await axiosInstance.put(
+    URL + "AppUser/updateTrainId",
+    data,
+    {
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+  console.log(response.data);
+});
+
 router.get("/profile", async (req, res, next) => {
   const trainId = localStorage.getItem("trainId");
   const trainUrl = URL + "Train/" + trainId;
@@ -106,7 +125,7 @@ router.get("/profile", async (req, res, next) => {
   try {
     const response = await axiosInstance.get<Train>(trainUrl);
     const train = response.data;
-     res.render("profile", {
+    res.render("profile", {
       title: "Your results",
       userDetails: {
         username: localStorage.getItem("username"),

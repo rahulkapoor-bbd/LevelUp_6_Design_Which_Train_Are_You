@@ -1,19 +1,3 @@
-import axios, { AxiosError } from "axios";
-import { configDotenv } from "dotenv";
-import https from "https";
-
-configDotenv();
-
-const URL = process.env.API_URL;
-
-const httpsAgent = new https.Agent({
-  rejectUnauthorized: false, // Accept self-signed certificates
-});
-
-const axiosInstance = axios.create({
-  httpsAgent,
-});
-
 let totals = [0, 0, 0, 0, 0];
 let weights = [0, 0, 0, 0, 0];
 
@@ -22,7 +6,7 @@ function makeChoice(weight: number, trainId: number, isPositive: boolean) {
   weights[trainId - 1] += weight * (isPositive ? 1 : -1);
 }
 
-function submitResult(username: string): void {
+async function submitResult(username: string) {
   const percentages = weights.map((weight, index) =>
     totals[index] === 0 ? 0 : (weight / totals[index]) * 2
   );
@@ -30,10 +14,15 @@ function submitResult(username: string): void {
   const max = Math.max(...percentages);
   const result = percentages.indexOf(max) + 1;
 
-  console.log(`Update trainId to ${result} for ${username}`);
+  const baseUrl = window.location.href.substring(
+    0,
+    window.location.href.length - 4
+  );
 
-  axiosInstance.put(URL + "AppUser/updateTrainId", {
-    username: username,
-    trainId: result,
+  await fetch(baseUrl + `submit/${result}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 }
