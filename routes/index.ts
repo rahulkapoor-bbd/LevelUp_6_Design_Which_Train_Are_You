@@ -3,18 +3,7 @@ import axios, { AxiosError } from "axios";
 import https from "https";
 const router = express.Router();
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Which train are you?" });
-});
-
-router.get("/login", function (req, res, next) {
-  res.render("login", { title: "Login" });
-});
-
-router.get("/register", function (req, res, next) {
-  res.render("register", { title: "Register" });
-});
+const URL = "https://localhost:7163/api/";
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false, // Accept self-signed certificates
@@ -24,11 +13,55 @@ const axiosInstance = axios.create({
   httpsAgent,
 });
 
-const QUIZ_URL = "https://localhost:7163/api/Question/quiz";
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Which train are you?" });
+});
+
+router.get("/login", function (req, res, next) {
+  res.render("login", { title: "Login" });
+});
+
+router.post("/login", async (req, res, next) => {
+  const loginUrl = URL + "AppUser/login";
+  const loginData = JSON.stringify({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  try {
+    const response = await axiosInstance.post(loginUrl, loginData, {headers: {"Content-Type": "application/json"}});
+    console.log(response.status);
+    res.redirect("/quiz");
+  } catch (error) {
+    console.error(error);
+    res.render("login", { title: "Login", error: error });
+  }
+});
+
+router.get("/register", function (req, res, next) {
+  res.render("register", { title: "Register" });
+});
+
+router.post("/register", async (req, res, next) => {
+  const registerUrl = URL + "AppUser/register";
+  const registerData = JSON.stringify({
+    username: req.body.username,
+    password: req.body.password
+  });
+  try {
+    const response = await axiosInstance.post(registerUrl, registerData,  {headers: {"Content-Type": "application/json"}});
+    console.log(response.status);
+    res.redirect("/login");
+  } catch (error) {
+    console.error(error);
+    res.render("register", { title: "Register", error: error });
+  }
+});
 
 router.get("/quiz", async (req, res, next) => {
+  const quizUrl = URL + "Question/quiz";
   try {
-    const response = await axiosInstance.get<Question>(QUIZ_URL);
+    const response = await axiosInstance.get<Question>(quizUrl);
     const questions = response.data;
     res.render("quiz", {
       title: "Which train are you?",
@@ -42,6 +75,7 @@ router.get("/quiz", async (req, res, next) => {
     res.render("error");
   }
 });
+
 
 interface Question {
   id: number;
