@@ -30,11 +30,10 @@ router.post("/login", async (req, res, next) => {
   });
   try {
     const response = await axiosInstance.post(loginUrl, loginData, {headers: {"Content-Type": "application/json"}});
-    console.log(response.status);
     res.redirect("/quiz");
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    res.render("login", { title: "Login", error: error });
+    res.render("login", { title: "Login", error: error.response.data });
   }
 });
 
