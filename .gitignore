@@ -128,3 +128,61 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# ASP.NET
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*.config
+*.bak
+*.dll.config
+*.csproj
+*.user
+*.vscode
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Xx]64/
+[Xx]86/
+[Bb]uild/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio files
+.vs/
+*_i.c
+*_p.c
+*.pidb
+*.log
+*.vspscc
+*.vssscc
+.vscode/
+*.suo
+*.sln.docstates
+*.userprefs
+*.launch.csproj
+*.nuget/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet
+_packages/
+*.nupkg
+nuget.exe
+*.psmdcp
+*.pfx
+*.snk
+
+# MSTest
+testresults/
+[Bb]uild[Dd]ot[Dd]net/
