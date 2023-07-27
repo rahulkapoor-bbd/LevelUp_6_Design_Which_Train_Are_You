@@ -46,6 +46,15 @@ form > input {
   cursor: pointer;
 }
 
+label {
+  width: 10%;
+}
+
+input[type="radio"] {
+  width: 25px;
+  height: 25px;
+}
+
 .container {
   margin: 10px auto;
   width: 640px;
