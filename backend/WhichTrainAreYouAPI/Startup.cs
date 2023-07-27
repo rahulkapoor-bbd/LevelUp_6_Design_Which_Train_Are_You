@@ -27,6 +27,10 @@ namespace WhichTrainAreYouAPI
             // Add controllers
             services.AddControllers();
 
+            services.AddHealthChecks();
+
+
+
             // Add authentication (if needed)
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             //    .AddJwtBearer(options =>
@@ -73,6 +77,8 @@ namespace WhichTrainAreYouAPI
             {
                 endpoints.MapControllers();
             });
+
+            app.UseHealthChecks("/health");
         }
     }
 }
