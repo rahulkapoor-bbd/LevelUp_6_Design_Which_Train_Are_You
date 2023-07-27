@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj": {}
+    "C:\\Users\\bbdnet2782\\Documents\\BBD\\Grad_program\\Train_Level_Up\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj": {
+    "C:\\Users\\bbdnet2782\\Documents\\BBD\\Grad_program\\Train_Level_Up\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bbdnet2782\\Documents\\BBD\\Grad_program\\Train_Level_Up\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj",
         "projectName": "WhichTrainAreYouAPI",
-        "projectPath": "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj",
-        "packagesPath": "C:\\Users\\bbdnet2858\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bbdnet2858\\Documents\\BBD\\Grad Work\\1. Level Ups\\6. Design\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\obj\\",
+        "projectPath": "C:\\Users\\bbdnet2782\\Documents\\BBD\\Grad_program\\Train_Level_Up\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\WhichTrainAreYouAPI.csproj",
+        "packagesPath": "C:\\Users\\bbdnet2782\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bbdnet2782\\Documents\\BBD\\Grad_program\\Train_Level_Up\\LevelUp_6_Design_Which_Train_Are_You\\backend\\WhichTrainAreYouAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bbdnet2858\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bbdnet2782\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

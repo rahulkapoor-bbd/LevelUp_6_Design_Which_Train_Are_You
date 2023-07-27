@@ -12,6 +12,10 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Login" });
 });
 
+router.get("/register", function (req, res, next) {
+  res.render("register", { title: "Register" });
+});
+
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false, // Accept self-signed certificates
 });
