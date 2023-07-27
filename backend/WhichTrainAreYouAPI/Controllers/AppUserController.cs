@@ -66,6 +66,19 @@ namespace WhichTrainAreYouAPI.Controllers
       return Ok(user);
     }
 
+    [HttpGet("data")]
+    public IActionResult GetUser(String username)
+    {
+      var user = _dbContext.AppUsers.FirstOrDefault(u => u.Username == username);
+
+      if (user == null)
+      {
+        return NotFound("User not found");
+      }
+
+      return Ok(user);
+    }
+
     [HttpPut("updateTrainId")]
     public async Task<IActionResult> UpdateUserTrainId(UserTrainUpdateDTO userTrainUpdateDto)
     {
