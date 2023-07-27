@@ -28,6 +28,7 @@ router.get("/quiz", async (req, res, next) => {
     const questions = response.data;
     res.render("quiz", {
       title: "Which train are you?",
+      username: "Coolboi",
       questions: questions,
     });
   } catch (error) {

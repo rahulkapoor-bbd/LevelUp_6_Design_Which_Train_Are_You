@@ -6,13 +6,13 @@ function makeChoice(weight: number, trainId: number, isPositive: boolean) {
   weights[trainId - 1] += weight * (isPositive ? 1 : -1);
 }
 
-function getResult(total: number): void {
-  const percentages = weights.map(
-    (weight, index) => weight / (totals[index] * 2)
+function submitResult(username: string): void {
+  const percentages = weights.map((weight, index) =>
+    totals[index] === 0 ? 0 : (weight / totals[index]) * 2
   );
 
   const max = Math.max(...percentages);
   const result = percentages.indexOf(max) + 1;
 
-  console.log(result);
+  console.log(`Update trainId to ${result} for ${username}`);
 }
