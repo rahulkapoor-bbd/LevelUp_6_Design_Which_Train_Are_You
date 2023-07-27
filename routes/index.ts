@@ -35,7 +35,20 @@ router.post("/login", async (req, res, next) => {
     const response = await axiosInstance.post(loginUrl, loginData, {
       headers: { "Content-Type": "application/json" },
     });
-    res.redirect("/quiz");
+
+    const userData: User = response.data;
+
+    localStorage.setItem("username", userData.username);
+
+    if (userData.trainId) {
+      localStorage.setItem("trainId", userData.trainId + "");
+    }
+
+    if (userData.trainId) {
+      res.redirect("/profile");
+    } else {
+      res.redirect("/quiz");
+    }
   } catch (error: any) {
     console.error(error);
     res.render("login", { title: "Login", error: error.response.data });
@@ -84,7 +97,7 @@ router.get("/quiz", async (req, res, next) => {
 });
 
 router.get("/profile", async (req, res, next) => {
-  const trainId = 5;
+  const trainId = localStorage.getItem("trainId");
   const trainUrl = URL + "Train/" + trainId;
 
   try {
@@ -93,7 +106,7 @@ router.get("/profile", async (req, res, next) => {
      res.render("profile", {
       title: "Profile Page",
       userDetails: {
-        username: "CoolBoi",
+        username: localStorage.getItem("username"),
         trainId: train.trainId,
         trainName: train.trainName,
         description: train.description,
@@ -125,6 +138,12 @@ interface Error {
   message: string;
 }
 
-
+interface User {
+  userId: number;
+  username: string;
+  passwordHash: string;
+  salt: string;
+  trainId?: number;
+}
 
 export default router;
