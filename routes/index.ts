@@ -3,8 +3,11 @@ import axios, { AxiosError } from "axios";
 import https from "https";
 const router = express.Router();
 import { configDotenv } from "dotenv";
+import { LocalStorage } from "node-localstorage";
 
 configDotenv();
+
+const localStorage = new LocalStorage("./scratch");
 
 const URL = process.env.API_URL;
 
