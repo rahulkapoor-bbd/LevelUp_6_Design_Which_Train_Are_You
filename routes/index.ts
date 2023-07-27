@@ -2,6 +2,19 @@ import express from "express";
 import axios, { AxiosError } from "axios";
 import https from "https";
 const router = express.Router();
+import { configDotenv } from "dotenv";
+
+configDotenv();
+
+const URL = process.env.API_URL;
+
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false, // Accept self-signed certificates
+});
+
+const axiosInstance = axios.create({
+  httpsAgent,
+});
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -12,19 +25,49 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Login" });
 });
 
-const httpsAgent = new https.Agent({
-  rejectUnauthorized: false, // Accept self-signed certificates
+router.post("/login", async (req, res, next) => {
+  const loginUrl = URL + "AppUser/login";
+  const loginData = JSON.stringify({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  try {
+    const response = await axiosInstance.post(loginUrl, loginData, {
+      headers: { "Content-Type": "application/json" },
+    });
+    res.redirect("/quiz");
+  } catch (error: any) {
+    console.error(error);
+    res.render("login", { title: "Login", error: error.response.data });
+  }
 });
 
-const axiosInstance = axios.create({
-  httpsAgent,
+router.get("/register", function (req, res, next) {
+  res.render("register", { title: "Register" });
 });
 
-const QUIZ_URL = "https://localhost:7163/api/Question/quiz";
+router.post("/register", async (req, res, next) => {
+  const registerUrl = URL + "AppUser/register";
+  const registerData = JSON.stringify({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  try {
+    const response = await axiosInstance.post(registerUrl, registerData, {
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(response.status);
+    res.redirect("/login");
+  } catch (error) {
+    console.error(error);
+    res.render("register", { title: "Register", error: error });
+  }
+});
 
 router.get("/quiz", async (req, res, next) => {
+  const quizUrl = URL + "Question/quiz";
   try {
-    const response = await axiosInstance.get<Question>(QUIZ_URL);
+    const response = await axiosInstance.get<Question>(quizUrl);
     const questions = response.data;
     res.render("quiz", {
       title: "Which train are you?",
@@ -40,6 +83,37 @@ router.get("/quiz", async (req, res, next) => {
   }
 });
 
+router.get("/profile", async (req, res, next) => {
+  const trainId = 5;
+  const trainUrl = URL + "Train/" + trainId;
+
+  try {
+    const response = await axiosInstance.get<Train>(trainUrl);
+    const train = response.data;
+     res.render("profile", {
+      title: "Profile Page",
+      userDetails: {
+        username: "CoolBoi",
+        trainId: train.trainId,
+        trainName: train.trainName,
+        description: train.description,
+      },
+    });
+  } catch (error) {
+    console.error(
+      "Error fetching questions:",
+      (error as AxiosError<Error>).message
+    );
+    res.render("error");
+  }
+});
+
+interface Train {
+  trainId: number;
+  trainName: string;
+  description: string;
+}
+
 interface Question {
   id: number;
   content: string;
@@ -51,17 +125,6 @@ interface Error {
   message: string;
 }
 
-router.get("/profile", async (req, res, next) => {
-  res.render("profile", {
-    title: "Profile Page",
-    userDetails: {
-      username: "CoolBoi",
-      trainId: 1,
-      trainName: "Union Pacific 9000 Class",
-      description:
-        "The Union Pacific Railroad 9000 Class was a class of 88 steam locomotives, built by ALCO for the Union Pacific between 1926 and 1930. The Union Pacific 9000 class was the only class of steam locomotives with a 4-12-2 wheel arrangement ever to be built.",
-    },
-  });
-});
+
 
 export default router;

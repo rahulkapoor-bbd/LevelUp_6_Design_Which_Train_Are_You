@@ -6,6 +6,10 @@ body {
   color: #fff;
 }
 
+p {
+  color: #d2dae2;
+}
+
 a {
   background-color: rgba(225, 95, 65, 1);
   border: none;
@@ -17,6 +21,16 @@ a {
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 20px;
+}
+
+img {
+  margin: 20px;
+  max-width: 50%;
+}
+
+hr {
+  width: 80%;
 }
 
 img {
@@ -30,12 +44,23 @@ form {
   font-size: large;
 }
 
+form > a {
+  background: none;
+}
+
+form > a:hover {
+  background: none;
+  color: #e15f41;
+}
+
 form > section {
   width: 40%;
   align-self: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: end;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 form > input {
@@ -45,10 +70,31 @@ form > input {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 20px;
+}
+
+section > input {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+
+label {
+  width: 10%;
+}
+
+input[type="radio"] {
+  width: 25px;
+  height: 25px;
+}
+
+.error-message {
+  color: #e15f41;
 }
 
 .container {
@@ -59,6 +105,9 @@ form > input {
   backdrop-filter: blur(10px);
   border-radius: 5px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .question {

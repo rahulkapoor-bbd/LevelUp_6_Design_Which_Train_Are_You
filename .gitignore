@@ -129,6 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# c# 
+# C#
 backend/WhichTrainAreYouAPI/bin
 backend/WhichTrainAreYouAPI/obj
+backend/WhichTrainAreYouAPI/.vs
