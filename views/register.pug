@@ -13,6 +13,8 @@ block content
         section
           | Password:
           input(type="password", name="password", value="")
+      if error
+        p.error-message #{error}
       input(type="submit", value="Register")
       a(href="/login") Already have an account? Log in.
 
