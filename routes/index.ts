@@ -2,8 +2,11 @@ import express from "express";
 import axios, { AxiosError } from "axios";
 import https from "https";
 const router = express.Router();
+import { configDotenv } from "dotenv";
 
-const URL = "https://localhost:7163/api/";
+configDotenv();
+
+const URL = process.env.API_URL;
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false, // Accept self-signed certificates
@@ -29,7 +32,9 @@ router.post("/login", async (req, res, next) => {
     password: req.body.password,
   });
   try {
-    const response = await axiosInstance.post(loginUrl, loginData, {headers: {"Content-Type": "application/json"}});
+    const response = await axiosInstance.post(loginUrl, loginData, {
+      headers: { "Content-Type": "application/json" },
+    });
     res.redirect("/quiz");
   } catch (error: any) {
     console.error(error);
@@ -45,10 +50,12 @@ router.post("/register", async (req, res, next) => {
   const registerUrl = URL + "AppUser/register";
   const registerData = JSON.stringify({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
   });
   try {
-    const response = await axiosInstance.post(registerUrl, registerData,  {headers: {"Content-Type": "application/json"}});
+    const response = await axiosInstance.post(registerUrl, registerData, {
+      headers: { "Content-Type": "application/json" },
+    });
     console.log(response.status);
     res.redirect("/login");
   } catch (error) {
@@ -74,7 +81,6 @@ router.get("/quiz", async (req, res, next) => {
     res.render("error");
   }
 });
-
 
 interface Question {
   id: number;
