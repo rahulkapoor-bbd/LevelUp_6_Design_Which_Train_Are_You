@@ -3,9 +3,9 @@ extends layout
 block content
   div.heading.container
     h1=title
-    p Please log in to take the quiz
+    p Please register to take the quiz
     hr
-    form(action="/login", method="POST")
+    form(action="/register", method="POST")
       p
         section
           | Username: 
@@ -13,6 +13,6 @@ block content
         section
           | Password:
           input(type="password", name="password", value="")
-      input(type="submit", value="Log In")
-      a(href="/register") Don't have an account? Register.
+      input(type="submit", value="Register")
+      a(href="/login") Already have an account? Log in.
 
