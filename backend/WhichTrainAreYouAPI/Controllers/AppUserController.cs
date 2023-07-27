@@ -22,17 +22,14 @@ namespace WhichTrainAreYouAPI.Controllers
         [HttpPost("register")]
         public IActionResult Register(UserRegistrationDTO registrationDto)
         {
-            // Validate inputs and check if the username already exists
             if (_dbContext.AppUsers.Any(u => u.Username == registrationDto.Username))
             {
                 return BadRequest("Username already exists.");
             }
 
-            // Generate salt and hash the password
             string salt;
             string hashedPassword = PasswordHelper.HashPassword(registrationDto.Password, out salt);
 
-            // Save the user to the database
             var newUser = new AppUser
             {
                 Username = registrationDto.Username,

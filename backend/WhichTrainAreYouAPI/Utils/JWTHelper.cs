@@ -19,7 +19,12 @@ namespace WhichTrainAreYouAPI.Utils
         public string GenerateJWTToken(AppUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var privateKey = _configuration["JwtSecretKey"];
+
+            var appSettings = _configuration.GetSection("AppSettings");
+            var privateKey = appSettings["JwtSecretKey"];
+            var audience = appSettings["Audience"];
+            var issuer = appSettings["Issuer"];
+
             var key = Encoding.ASCII.GetBytes(privateKey);
 
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -29,7 +34,9 @@ namespace WhichTrainAreYouAPI.Utils
                     new Claim(ClaimTypes.Name, user.Username),
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                Audience = audience,
+                Issuer = issuer
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

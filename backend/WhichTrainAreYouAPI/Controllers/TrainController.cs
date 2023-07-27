@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using WhichTrainAreYouAPI.DataAccess;
 
@@ -6,6 +7,7 @@ namespace WhichTrainAreYouAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TrainController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
