@@ -133,3 +133,6 @@ dist
 backend/WhichTrainAreYouAPI/bin
 backend/WhichTrainAreYouAPI/obj
 backend/WhichTrainAreYouAPI/.vs
+
+# Node LocalStorage
+scratch
