@@ -87,3 +87,8 @@ C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Des
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\obj\Debug\net6.0\WhichTrainAreYouAPI.pdb
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\obj\Debug\net6.0\WhichTrainAreYouAPI.genruntimeconfig.cache
 C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\obj\Debug\net6.0\ref\WhichTrainAreYouAPI.dll
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\out\web.config
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\out\appsettings.Development.json
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\out\appsettings.json
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\out\WhichTrainAreYouAPI.deps.json
+C:\Users\bbdnet2858\Documents\BBD\Grad Work\1. Level Ups\6. Design\LevelUp_6_Design_Which_Train_Are_You\backend\WhichTrainAreYouAPI\bin\Debug\net6.0\out\WhichTrainAreYouAPI.runtimeconfig.json

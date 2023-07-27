@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WhichTrainAreYouAPI.DataAccess;
 using WhichTrainAreYouAPI.Models;
 using WhichTrainAreYouAPI.Utils;
@@ -61,6 +62,34 @@ namespace WhichTrainAreYouAPI.Controllers
             return Ok("Authenticated!");
         }
 
-        // Other actions, such as updating user details, can be added here
+        [HttpPut("updateTrainId")]
+        public async Task<IActionResult> UpdateUserTrainId(UserTrainUpdateDTO userTrainUpdateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid input data.");
+            }
+
+            var user = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Username == userTrainUpdateDto.Username);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            user.TrainId = userTrainUpdateDto.NewTrainId;
+            _dbContext.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return BadRequest("Failed to update the user. Please try again.");
+            }
+
+            return Ok("User TrainId updated successfully.");
+        }
     }
 }
