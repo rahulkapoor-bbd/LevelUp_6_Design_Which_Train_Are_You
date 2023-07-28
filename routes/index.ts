@@ -116,6 +116,7 @@ router.post("/submit/:trainId", async (req, res, next) => {
     }
   );
   console.log(response.data);
+  res.send(response.data);
 });
 
 router.get("/profile", async (req, res, next) => {
