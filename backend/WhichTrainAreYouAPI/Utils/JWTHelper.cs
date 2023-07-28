@@ -21,7 +21,8 @@ namespace WhichTrainAreYouAPI.Utils
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var appSettings = _configuration.GetSection("AppSettings");
-            var privateKey = appSettings["JwtSecretKey"];
+            var privateKey = Environment.GetEnvironmentVariable("WhichTrainAreYouJWTKey");
+            //var privateKey = appSettings["JwtSecretKey"];
             var audience = appSettings["Audience"];
             var issuer = appSettings["Issuer"];
 
