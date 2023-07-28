@@ -1,10 +1,13 @@
 extends layout
 
+
+
 block content
+  body(onload=`setTotal(${questions.length})`)
   div.heading.container
     h1=title
     p Please select the answer that best describes how you feel about each statement.
-    form(action="/profile", method="GET")
+    form()
       each question in questions
         .question
           section
@@ -12,20 +15,20 @@ block content
             legend
             .radio-group
               label(for=`question_${question.questionId}_1`)
-                input(type='radio' name=`question_${question.questionId}` value='1' onclick=`makeChoice(-2, ${question.trainId}, ${question.isPositive})`, required)
+                input(type='radio' name=`question_${question.questionId}` value='1' onclick=`makeChoice(${question.questionId}, -2, ${question.trainId}, ${question.isPositive})`, required)
                 | Disagree
               label(for=`question_${question.questionId}_2`)
-                input(type='radio' name=`question_${question.questionId}` value='2' onclick=`makeChoice(-1, ${question.trainId}, ${question.isPositive})`, required)
+                input(type='radio' name=`question_${question.questionId}` value='2' onclick=`makeChoice(${question.questionId}, -1, ${question.trainId}, ${question.isPositive})`, required)
                 span
               label(for=`question_${question.questionId}_3`)
-                input(type='radio' name=`question_${question.questionId}` value='3' onclick=`makeChoice(0, ${question.trainId}, ${question.isPositive})`, required)
+                input(type='radio' name=`question_${question.questionId}` value='3' onclick=`makeChoice(${question.questionId}, 0, ${question.trainId}, ${question.isPositive})`, required)
                 span
               label(for=`question_${question.questionId}_4`)
-                input(type='radio' name=`question_${question.questionId}` value='4' onclick=`makeChoice(1, ${question.trainId}, ${question.isPositive})`, required)
+                input(type='radio' name=`question_${question.questionId}` value='4' onclick=`makeChoice(${question.questionId}, 1, ${question.trainId}, ${question.isPositive})`, required)
                 span
               label(for=`question_${question.questionId}_5`)
-                input(type='radio' name=`question_${question.questionId}` value='5' onclick=`makeChoice(2, ${question.trainId}, ${question.isPositive})`, required)
+                input(type='radio' name=`question_${question.questionId}` value='5' onclick=`makeChoice(${question.questionId}, 2, ${question.trainId}, ${question.isPositive})`, required)
                 | Agree
-      input(type="button" class="submit-button" onclick=`submitResult("${username}")`)
-      script 
+      input(id="quiz-submit" type="submit" class="submit-button")
+      script
         include ../dist/public/typescripts/script.js
